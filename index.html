@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamza Et Taouti - CV Interactif & Blog Technique</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Fond de câbles SVG dynamique -->
+    <svg id="network-cables">
+        <path id="cable1" class="cable-path" d="M 300 200 C 450 200, 400 150, 500 150" />
+        <path id="pulse1" class="data-pulse" d="M 300 200 C 450 200, 400 150, 500 150" />
+
+        <path id="cable2" class="cable-path" d="M 300 280 C 450 280, 400 450, 500 450" />
+        <path id="pulse2" class="data-pulse" d="M 300 280 C 450 280, 400 450, 500 450" />
+
+        <path id="cable3" class="cable-path" d="M 300 360 C 450 360, 400 700, 500 700" />
+        <path id="pulse3" class="data-pulse" d="M 300 360 C 450 360, 400 700, 500 700" />
+    </svg>
+
+    <header>
+        <div class="header-title-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Tux.png" class="linux-badge" alt="Linux Tux Logo" onclick="runCommand('linux')">
+            <h1>Hamza Et Taouti</h1>
+        </div>
+        <p>[ Technicien Informatique & Réseau | Admin Systèmes Unix ]</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- COLONNE GAUCHE : Identité / Switch Central (Persistant) -->
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+            
+            <div class="card" id="card-identite" onmouseover="activateCable(1)" onmouseout="deactivateCable(1)">
+                <h2>Statut Système</h2>
+                <p><strong>Nom :</strong> Hamza Et Taouti</p>
+                <p><strong>Localisation :</strong> 78200, France</p>
+                <p style="margin-top: 15px;"><strong>Contact :</strong></p>
+                <p>📧 <a href="mailto:hamzaettaouti@gmail.com" style="color: var(--primary);">hamzaettaouti@gmail.com</a></p>
+                <p>📞 +33 7 67 82 05 22</p>
+            </div>
+
+            <div class="card" id="card-interets">
+                <h2>Intérêts & Veille</h2>
+                <ul>
+                    <li>🛡️ <strong>Cybersécurité :</strong> Approche analytique des pannes, diagnostics et correctifs.</li>
+                    <li>🐧 <strong>SysAdmin :</strong> Administration systèmes UNIX/Linux.</li>
+                    <li>🎹 <strong>Musique :</strong> Pianiste, Guitariste, MAO (Conservatoire de Mantes-la-Jolie).</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- COLONNE DROITE : Système d'Onglets (CV vs Blog) -->
+        <div style="display: flex; flex-direction: column;">
+            
+            <div class="tabs-header">
+                <button class="tab-btn active" id="btn-cv" onclick="switchTab('cv')">[ 💾 MON PARCOURS ]</button>
+                <button class="tab-btn" id="btn-blog" onclick="switchTab('blog')">[ 📑 BLOG : DOSSIERS & OUTILS ]</button>
+            </div>
+
+            <!-- ONGLET 1 : LE PARCOURS CV (Actif par défaut) -->
+            <div class="tab-content active" id="content-cv">
+                <!-- Compétences -->
+                <div class="card" id="card-competences" onmouseover="activateCable(1)" onmouseout="deactivateCable(1)">
+                    <h2>Compétences Réseau & Systèmes</h2>
+                    <div style="margin-bottom: 10px;">
+                        <strong>Hardware & Infra :</strong>
+                        <span class="skill-tag">Montage PC</span>
+                        <span class="skill-tag">Dépannage SAV</span>
+                        <span class="skill-tag">Systèmes industriels</span>
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <strong>Réseaux & OS :</strong>
+                        <span class="skill-tag">Routage IP</span>
+                        <span class="skill-tag">Câblage</span>
+                        <span class="skill-tag">Terminal Unix</span>
+                        <span class="skill-tag">Architécture Unix</span>
+                    </div>
+                    <div>
+                        <strong>Language :</strong>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Rust</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                    </div>
+                </div>
+
+                <!-- Expérience -->
+                <div class="card" id="card-experience" onmouseover="activateCable(2)" onmouseout="deactivateCable(2)">
+                    <h2>Expérience Professionnelle</h2>
+                    <div class="timeline-item">
+                        <span class="date">JUIN 2022 - AOÛT 2022</span>
+                        <h3>Technicien Informatique de Niveau 2</h3>
+                        <p style="color: var(--secondary);">ECO PC Store - Mantes-la-Jolie</p>
+                        <p style="font-size: 0.9rem; margin-top: 5px;">Dépannage SAV informatique, diagnostic approfondi, maintenance et relations clients.</p>
+                    </div>
+                </div>
+
+                <!-- Formations -->
+                <div class="card" id="card-formation" onmouseover="activateCable(3)" onmouseout="deactivateCable(3)">
+                    <h2>Formations & Certifications</h2>
+                    <div class="timeline-item">
+                        <span class="date">Digital Formation Plus</span>
+                        <p>Technicien informatique de niveau deux.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="date">Cisco Networking Academy</span>
+                        <p>Certification en Networking.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="date">EF SET Standard</span>
+                        <p>Maîtrise Anglais C1 Avancé.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="date">IBM SkillsBuild</span>
+                        <p>IT Support Technician Certificate</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="date">Éducation Nationale</span>
+                        <p>Bac Général - Spécialité Physique-Chimie / Numérique et Science Informatique (NSI).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ONGLET 2 : LE BLOG TECHNIQUE INSOLITE & HARDWARE -->
+            <div class="tab-content" id="content-blog">
+                <!-- Article 1 (Insolite) -->
+                <div class="card blog-post" id="blog1" onclick="toggleBlogPost(this)" onmouseover="activateCable(1)" onmouseout="deactivateCable(1)">
+                    <h3>🛸 Ingenuity : Quand Linux a conquis Mars</h3>
+                    <span class="blog-meta">Catégorie : Systèmes Linux & Espace | Temps de lecture : 2 min</span>
+                    <p class="blog-excerpt">En 2021, la NASA a fait décoller le premier hélicoptère sur une autre planète. Son secret ? Il fonctionne entièrement sous Linux.</p>
+                    <div class="blog-full-text">
+                        En avril 2021, le petit hélicoptère martien <strong>Ingenuity</strong> réalisait son premier vol autonome dans l'atmosphère très ténue de Mars. Pour piloter cet appareil dans des conditions extrêmes, la NASA n'a pas utilisé un système propriétaire hors de prix, mais une distribution Linux personnalisée.<br><br>
+                        Propulsé par un simple processeur grand public (un Qualcomm Snapdragon 801 similaire à ceux des smartphones d'il y a quelques années), Ingenuity a prouvé que des logiciels open source, combinés à du matériel standard, pouvaient accomplir des exploits spatiaux inédits. Les ingénieurs du JPL (Jet Propulsion Laboratory) ont même mis à disposition une partie de l'architecture logicielle de navigation en open-source sur GitHub !
+                    </div>
+                    <span class="blog-expand-btn">[ Lire la suite ]</span>
+                </div>
+
+                <!-- Article 2 (Insolite) -->
+                <div class="card blog-post" id="blog2" onclick="toggleBlogPost(this)" onmouseover="activateCable(2)" onmouseout="deactivateCable(2)">
+                    <h3>📧 Le bug insolite de l'email à "plus de 500 miles"</h3>
+                    <span class="blog-meta">Catégorie : Protocoles Réseau | Temps de lecture : 3 min</span>
+                    <p class="blog-excerpt">L'histoire vraie d'une panne réseau légendaire où un serveur de messagerie refusait d'envoyer des e-mails à plus de 800 kilomètres.</p>
+                    <div class="blog-full-text">
+                        C'est l'une des anecdotes les plus célèbres de l'administration système. Un jour, un administrateur d'université reçoit un appel d'un professeur : <em>"Nous ne pouvons plus envoyer de mails à des personnes situées à plus de 500 miles (800 km) d'ici"</em>.<br><br>
+                        Pensant d'abord à une blague, l'administrateur mène l'enquête. En effectuant des tests de connexion géographique, le couperet tombe : toutes les requêtes vers des serveurs distants de moins de 500 miles fonctionnent, les autres échouent systématiquement.<br><br>
+                        <strong>L'explication :</strong> Une mise à jour du logiciel Sendmail avait réinitialisé par erreur le délai d'attente (timeout) de connexion TCP à "0". À cause de cette valeur nulle, le système fermait la connexion s'il n'obtenait pas une réponse immédiate. La limite physique de propagation de la lumière (et donc du signal réseau) dans les câbles de fibre optique sur 500 miles aller-retour représentait précisément un délai de 3 millisecondes. Tout serveur situé au-delà de cette distance physique mettait trop de temps à répondre et la connexion était avortée. Un bug réseau régi par la vitesse de la lumière !
+                    </div>
+                    <span class="blog-expand-btn">[ Lire la suite ]</span>
+                </div>
+
+                <!-- Article 3 (Insolite) -->
+                <div class="card blog-post" id="blog3" onclick="toggleBlogPost(this)" onmouseover="activateCable(3)" onmouseout="deactivateCable(3)">
+                    <h3>🐦 RFC 1149 : Quand Internet voyage par pigeon voyageur</h3>
+                    <span class="blog-meta">Catégorie : Protocoles Réseau & Humour | Temps de lecture : 2 min</span>
+                    <p class="blog-excerpt">Saviez-vous qu'il existe une spécification officielle pour faire circuler des données internet grâce à des oiseaux ?</p>
+                    <div class="blog-full-text">
+                        Écrite le 1er avril 1990 par David Waitzman, la <strong>RFC 1149</strong> est un standard humoristique officiel de l'IETF décrivant le protocole <em>"IP over Avian Carriers"</em> (IP sur transporteurs aviaires), c'est-à-dire l'envoi de paquets Internet par pigeons voyageurs.<br><br>
+                        Bien que rédigée comme un poisson d'avril, la RFC a été techniquement implémentée le 28 avril 2001 par un groupe d'utilisateurs Linux en Norvège. Ils ont attaché des paquets contenant des commandes "ping" imprimées sur papier aux pattes de quatre pigeons. <br><br>
+                        Le résultat du test est historique : <br>
+                        - **Latence mesurée** : 5400 secondes (environ 1 heure et 30 minutes).<br>
+                        - **Perte de paquets** : 55% (seuls deux des quatre pigeons sont arrivés à destination avec leur message). <br><br>
+                        Preuve qu'en réseau informatique, même les protocoles les plus insolites méritent d'être testés en conditions réelles !
+                    </div>
+                    <span class="blog-expand-btn">[ Lire la suite ]</span>
+                </div>
+
+                <!-- Article 4 (Hardware 1) -->
+                <div class="card blog-post" id="blog4" onclick="toggleBlogPost(this)" onmouseover="activateCable(1)" onmouseout="deactivateCable(1)">
+                    <h3>💾 iODD Mini : L'émulateur d'ISO ultime au niveau matériel</h3>
+                    <span class="blog-meta">Catégorie : Matériel & Dépannage | Temps de lecture : 2 min</span>
+                    <p class="blog-excerpt">Terminé de graver des clés USB bootables à la chaîne. Ce boîtier magique émule des lecteurs optiques virtuels directement au boot du BIOS.</p>
+                    <div class="blog-full-text">
+                        Pour tout technicien informatique de terrain, l'iODD Mini est une véritable révolution. Il s'agit d'un boîtier de stockage externe équipé d'un écran LCD qui permet de stocker des fichiers ISO, VHD ou DTD directement. Sa force réside dans son microcontrôleur interne.<br><br>
+                        Lors du démarrage du PC (BIOS ou UEFI), le système ne voit pas une simple clé de stockage, mais un vrai lecteur optique CD/DVD physique ou un disque dur bootable émulé à la volée. Grâce à l'écran intégré et aux commandes physiques, vous pouvez sélectionner l'ISO de votre choix (Windows 11, distribution Linux, utilitaires de diagnostic) et démarrer dessus en quelques secondes, éliminant ainsi le besoin de réécrire constamment vos clés USB. Un outil indispensable pour le SAV et le dépannage rapide !
+                    </div>
+                    <span class="blog-expand-btn">[ Lire la suite ]</span>
+                </div>
+
+                <!-- Article 5 (Hardware 2) -->
+                <div class="card blog-post" id="blog5" onclick="toggleBlogPost(this)" onmouseover="activateCable(2)" onmouseout="deactivateCable(2)">
+                    <h3>📶 GL.iNet Beryl AX (GL-MT3000) : Le routeur OpenWrt de poche de terrain</h3>
+                    <span class="blog-meta">Catégorie : Matériel & Réseau | Temps de lecture : 2 min</span>
+                    <p class="blog-excerpt">Un routeur Wi-Fi 6 ultra-compact de poche conçu pour les administrateurs et les tests réseau nomades.</p>
+                    <div class="blog-full-text">
+                        Le GL.iNet Beryl AX est un outil réseau de poche idéal pour l'analyse et la sécurisation sur le terrain. Propulsé par une distribution Linux OpenWrt, ce routeur Wi-Fi 6 compact s'alimente simplement en USB-C et propose de véritables ports Ethernet gigabit.<br><br>
+                        Idéal pour le dépannage, il permet aux techniciens réseau de configurer des passerelles VPN instantanées (WireGuard/OpenVPN), de contourner les restrictions réseau des clients lors de tests, ou encore de brancher une clé 4G/5G en secours. Son interface Linux permet d'y installer des paquets réseau légers, d'analyser le trafic local ou de créer un hotspot de diagnostic sécurisé en quelques secondes.
+                    </div>
+                    <span class="blog-expand-btn">[ Lire la suite ]</span>
+                </div>
+
+                <!-- Article 6 (Hardware 3) -->
+                <div class="card blog-post" id="blog6" onclick="toggleBlogPost(this)" onmouseover="activateCable(3)" onmouseout="deactivateCable(3)">
+                    <h3>⚡ NetAlly LinkRunner G2 : Le testeur réseau intelligent</h3>
+                    <span class="blog-meta">Catégorie : Matériel & Diagnostic Réseau | Temps de lecture : 2 min</span>
+                    <p class="blog-excerpt">Un terminal réseau durci intelligent sous Android, capable d'analyser le signal physique, le PoE et d'exécuter des outils de diagnostic.</p>
+                    <div class="blog-full-text">
+                        En réseau, la première source de panne reste la couche physique (câble endommagé, mauvaise attribution de port, puissance PoE insuffisante). Le NetAlly LinkRunner G2 résout ce problème en remplaçant l'ordinateur portable du technicien lors des tournées.<br><br>
+                        Ce terminal renforcé sous Android se branche sur n'importe quelle prise RJ45 pour tester instantanément : la distance du câble (réflectométrie), la tension PoE sous charge réelle, l'ID du VLAN, les baux DHCP et le routage local. Sa connectivité lui permet d'envoyer automatiquement les rapports de tests dans le Cloud (Link-Live) ou d'exécuter des applications réseau de diagnostic directement sur l'appareil. Un outil professionnel de haute précision.
+                    </div>
+                    <span class="blog-expand-btn">[ Lire la suite ]</span>
+                </div>
+
+                <!-- Article 7 (Freeware Cleaner) -->
+                <div class="card blog-post" id="blog7" onclick="toggleBlogPost(this)" onmouseover="activateCable(1)" onmouseout="deactivateCable(1)">
+                    <h3>🧹 BleachBit : Le nettoyeur Open Source ultime pour Windows et Linux</h3>
+                    <span class="blog-meta">Catégorie : Logiciels & Freewares | Temps de lecture : 2 min</span>
+                    <p class="blog-excerpt">Considéré comme l'alternative libre et sans télémétrie à CCleaner, BleachBit nettoie et optimise vos systèmes en toute sécurité.</p>
+                    <div class="blog-full-text">
+                        Pour nettoyer un ordinateur en fin de dépannage sans installer d'adwares ou de logiciels intrusifs, <strong>BleachBit</strong> est le freeware open-source de référence. Disponible nativement pour Windows et GNU/Linux, il fonctionne de manière transparente sans aucune publicité ni télémétrie masquée.<br><br>
+                        Ce logiciel permet de libérer rapidement de l'espace disque en supprimant les fichiers temporaires, les cookies, les caches d'applications tiers, l'historique internet et les crash-dumps. Sur Linux, il est capable de purger proprement le gestionnaire de paquets (cache APT/DNF). En mode avancé (Superutilisateur), il propose également des outils de protection de la vie privée, comme le broyage sécurisé de fichiers pour interdire toute récupération ultérieure ou l'écrasement de l'espace disque libre pour effacer les traces. Un outil de maintenance léger et efficace qui tient sur une clé USB de dépannage !
+                    </div>
+                    <span class="blog-expand-btn">[ Lire la suite ]</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SECTION TERMINAL INTERACTIF -->
+        <div class="terminal-container">
+            <div class="terminal-header">
+                <span>CONTRÔLEUR SYSTÈME - hamza@portfolio:~$</span>
+                <span id="ping-display">PING: 12ms</span>
+            </div>
+            <div class="terminal-body" id="term-body">
+                <p>Initialisation de la console de Hamza Et Taouti...</p>
+                <p>Système opérationnel. Tapez une commande ou utilisez les boutons ci-dessous.</p>
+                <p>Nouveaux articles disponibles : tapez 'blog' pour lire les fiches outils et dossiers insolites.</p>
+            </div>
+            <div class="terminal-buttons">
+                <button class="term-btn" onclick="runCommand('skills')">run diagnostics_competences</button>
+                <button class="term-btn" onclick="runCommand('blog')">read blog_articles</button>
+                <button class="term-btn" onclick="runCommand('contact')">get contact_info</button>
+                <button class="term-btn" onclick="runCommand('ping')">ping_cables</button>
+                <button class="term-btn" onclick="runCommand('clear')">clear</button>
+            </div>
+            <div class="terminal-input-row">
+                <span class="terminal-prompt">></span>
+                <input type="text" class="terminal-input" id="term-input" placeholder="tapez 'help', 'blog' ou 'linux'..." onkeydown="handleInput(event)">
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Effets Sonores Système
+        function playBeep(freq, duration) {
+            try {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + duration);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + duration);
+            } catch (e) {}
+        }
+
+        // Câbles Réseau Dynamiques
+        function updateCables() {
+            if (window.innerWidth < 900) return;
+            
+            const cardIdent = document.getElementById('card-identite').getBoundingClientRect();
+            const activeTab = document.querySelector('.tab-content.active');
+            
+            const cards = activeTab.querySelectorAll('.card');
+            if (cards.length < 3) return;
+
+            const scrollY = window.scrollY;
+            const startX = cardIdent.right;
+            const startY = cardIdent.top + (cardIdent.height / 2) + scrollY;
+
+            drawCable('cable1', 'pulse1', startX, startY, cards[0].getBoundingClientRect().left, cards[0].getBoundingClientRect().top + 25 + scrollY);
+            drawCable('cable2', 'pulse2', startX, startY, cards[1].getBoundingClientRect().left, cards[1].getBoundingClientRect().top + 25 + scrollY);
+            drawCable('cable3', 'pulse3', startX, startY, cards[2].getBoundingClientRect().left, cards[2].getBoundingClientRect().top + 25 + scrollY);
+        }
+
+        function drawCable(cableId, pulseId, x1, y1, x2, y2) {
+            const cable = document.getElementById(cableId);
+            const pulse = document.getElementById(pulseId);
+            const controlX = x1 + (x2 - x1) / 2;
+            const pathData = `M ${x1} ${y1} C ${controlX} ${y1}, ${controlX} ${y2}, ${x2} ${y2}`;
+            if (cable) cable.setAttribute('d', pathData);
+            if (pulse) pulse.setAttribute('d', pathData);
+        }
+
+        // Routine d'onglet
+        function switchTab(tabId) {
+            playBeep(500, 0.08);
+            
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+            document.getElementById(`btn-${tabId}`).classList.add('active');
+            document.getElementById(`content-${tabId}`).classList.add('active');
+
+            setTimeout(updateCables, 50);
+        }
+
+        // Routine d'extension des articles du blog
+        function toggleBlogPost(cardElement) {
+            playBeep(700, 0.05);
+            cardElement.classList.toggle('expanded');
+            
+            const btn = cardElement.querySelector('.blog-expand-btn');
+            if (cardElement.classList.contains('expanded')) {
+                btn.innerText = "[ Réduire l'article ]";
+            } else {
+                btn.innerText = "[ Lire la suite ]";
+            }
+
+            let timer = setInterval(updateCables, 20);
+            setTimeout(() => clearInterval(timer), 450);
+        }
+
+        window.addEventListener('resize', updateCables);
+        window.addEventListener('scroll', updateCables);
+        setTimeout(updateCables, 500);
+
+        function activateCable(index) {
+            document.getElementById(`cable${index}`).style.stroke = 'var(--primary)';
+            document.getElementById(`cable${index}`).style.strokeWidth = '4px';
+            playBeep(800, 0.05);
+        }
+
+        function deactivateCable(index) {
+            document.getElementById(`cable${index}`).style.stroke = 'var(--border)';
+            document.getElementById(`cable${index}`).style.strokeWidth = '2px';
+        }
+
+        // Logique du Terminal
+        const termBody = document.getElementById('term-body');
+        const termInput = document.getElementById('term-input');
+
+        function printToTerminal(text, type = 'info') {
+            const p = document.createElement('p');
+            if (type === 'success') p.style.color = 'var(--secondary)';
+            if (type === 'error') p.style.color = '#ef4444';
+            p.innerHTML = text;
+            termBody.appendChild(p);
+            termBody.scrollTop = termBody.scrollHeight;
+        }
+
+        function handleInput(event) {
+            if (event.key === 'Enter') {
+                const cmd = termInput.value.trim().toLowerCase();
+                termInput.value = '';
+                runCommand(cmd);
+            }
+        }
+
+        function runCommand(cmd) {
+            playBeep(600, 0.1);
+            printToTerminal(`<span style="color: var(--primary);">hamza@portfolio:~$</span> ${cmd}`);
+
+            switch(cmd) {
+                case 'help':
+                    printToTerminal("Commandes disponibles :<br> - <strong>skills</strong> : Analyse les compétences.<br> - <strong>linux</strong> : Vérifie le statut de fan Linux.<br> - <strong>blog</strong> : Ouvre l'onglet blog et liste les articles.<br> - <strong>contact</strong> : Infos de contact de Hamza.<br> - <strong>ping</strong> : Latence des câbles virtuels.<br> - <strong>clear</strong> : Efface l'écran.");
+                    break;
+                case 'linux':
+                    printToTerminal("Analyse du noyau et des préférences système...", 'success');
+                    setTimeout(() => {
+                        printToTerminal("🐧 Statut Linux Fan : <strong>VÉRIFIÉ [OK]</strong>");
+                        printToTerminal("-> Distributions favorites : Arch, Debian, Ubuntu, Kali");
+                        printToTerminal("-> Philosophie : <em>'In Linux we trust, on Unix we rely!'</em>");
+                    }, 450);
+                    break;
+                case 'blog':
+                    switchTab('blog');
+                    printToTerminal("Chargement du sous-système de publication...", 'success');
+                    setTimeout(() => {
+                        printToTerminal("📑 7 articles trouvés :");
+                        printToTerminal("1. 🛸 Ingenuity : Quand Linux a conquis Mars");
+                        printToTerminal("2. 📧 Le bug de l'email à '500 miles'");
+                        printToTerminal("3. 🐦 RFC 1149 : Pigeon voyageur");
+                        printToTerminal("4. 💾 iODD Mini : L'émulateur ISO matériel");
+                        printToTerminal("5. 📶 GL.iNet Beryl AX : Routeur de poche OpenWrt");
+                        printToTerminal("6. ⚡ NetAlly LinkRunner G2 : Testeur intelligent");
+                        printToTerminal("7. 🧹 BleachBit : Nettoyeur libre Win/Linux");
+                    }, 300);
+                    break;
+                case 'skills':
+                    switchTab('cv');
+                    printToTerminal("Exécution du diagnostic...", 'success');
+                    setTimeout(() => {
+                        printToTerminal("-> SysAdmin: Linux/Unix [OK]");
+                        printToTerminal("-> Réseau: Base IP, Câblage, Cisco NetAcad [OK]");
+                        printToTerminal("-> Dev: Python, C++, Rust, Web stack [OK]");
+                    }, 400);
+                    break;
+                case 'contact':
+                    printToTerminal("<strong>Email :</strong> hamzaettaouti@gmail.com", 'success');
+                    printToTerminal("<strong>Téléphone :</strong> +33 7 67 82 05 22", 'success');
+                    printToTerminal("<strong>Adresse :</strong> 06 Boulevard Calmette, 78200", 'success');
+                    break;
+                case 'ping':
+                    const ping = Math.floor(Math.random() * (25 - 5) + 5);
+                    document.getElementById('ping-display').innerText = `PING: ${ping}ms`;
+                    printToTerminal(`Réponse de 192.168.1.1: temps=${ping}ms, TTL=64`, 'success');
+                    break;
+                case 'clear':
+                    termBody.innerHTML = '';
+                    break;
+                default:
+                    printToTerminal(`Commande inconnue: "${cmd}". Tapez 'help' pour voir les instructions.`, 'error');
+            }
+        }
+    </script>
+</body>
+</html>
